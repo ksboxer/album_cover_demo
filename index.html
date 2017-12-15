@@ -495,7 +495,7 @@ var before = false;
 
 function perform(path){
   var path = path;
-  path = path.replace("%2F", "%252")
+  path = path.replace("%2F", "%252F")
    path = path.replace("%26", "%2526")
 	d3.select('#album').attr("src", replaceAll('data_scraping_actual/'+path,'//', '/'));
 	return true;
