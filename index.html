@@ -331,7 +331,7 @@ function escapeRegExp(str) {
  {
       for (var i = 0; i < params.length; i++)
       {
-         d3.select('#p'+(i+1)+'_album').attr('src', '/data_scraping_actual/'+params[i]['coverpath_music']); 
+         d3.select('#p'+(i+1)+'_album').attr('src', '/album_cover_demo/data_scraping_actual/'+params[i]['coverpath_music']); 
           d3.select("#p"+(i+1)+"_album_artist").text(params[i]['artist_music']);
            d3.select("#p"+(i+1)+"_album_name").text(params[i]['album_music']);
              d3.select("#p"+(i+1)+"_album_year").text(params[i]['year_music']);
@@ -361,7 +361,7 @@ function escapeRegExp(str) {
  {
       for (var i = 0; i < params.length; i++)
       {
-         d3.select('#f'+(i+1)+'_album').attr('src', '/data_scraping_actual/'+params[i]['coverpath_music']); 
+         d3.select('#f'+(i+1)+'_album').attr('src', '/album_cover_demo/data_scraping_actual/'+params[i]['coverpath_music']); 
           d3.select("#f"+(i+1)+"_album_artist").text(params[i]['artist_music']);
            d3.select("#f"+(i+1)+"_album_name").text(params[i]['album_music']);
              d3.select("#f"+(i+1)+"_album_year").text(params[i]['year_music']);
@@ -519,7 +519,7 @@ function myCallback(result) {
   result = JSON.parse(result)
   actual_JSON = result
   path = Object.keys(actual_JSON)[0]
-  d3.select('#album').attr("src", replaceAll('/data_scraping_actual/'+path,'//', '/'));
+  d3.select('#album').attr("src", replaceAll('/album_cover_demo/data_scraping_actual/'+path,'//', '/'));
   var options = d3.select('#musiclist').on('change',onchange).selectAll("option")
 	.data(Object.keys(actual_JSON)).enter().append('option').text(function (d) {  return actual_JSON[d]['artist_music'] + ' - '+ actual_JSON[d]['album_music'] + " " +actual_JSON[d]['year_music']; }).attr('value',(function(d){return d;}));
 
@@ -531,7 +531,7 @@ var before = false;
 
 function perform(path){
   var path = path;
-	d3.select('#album').attr("src", replaceAll('/data_scraping_actual/'+path,'//', '/'));
+	d3.select('#album').attr("src", replaceAll('/album_cover_demo/data_scraping_actual/'+path,'//', '/'));
 	return true;
 
 }
