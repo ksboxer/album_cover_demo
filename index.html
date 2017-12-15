@@ -519,7 +519,7 @@ function myCallback(result) {
   result = JSON.parse(result)
   actual_JSON = result
   path = Object.keys(actual_JSON)[0]
-  d3.select('#album').attr("src", replaceAll('album_cover_demo/data_scraping_actual/'+path,'//', '/'));
+  d3.select('#album').attr("src", replaceAll('data_scraping_actual/'+path,'//', '/'));
   var options = d3.select('#musiclist').on('change',onchange).selectAll("option")
 	.data(Object.keys(actual_JSON)).enter().append('option').text(function (d) {  return actual_JSON[d]['artist_music'] + ' - '+ actual_JSON[d]['album_music'] + " " +actual_JSON[d]['year_music']; }).attr('value',(function(d){return d;}));
 
@@ -531,7 +531,7 @@ var before = false;
 
 function perform(path){
   var path = path;
-	d3.select('#album').attr("src", replaceAll('album_cover_demo/data_scraping_actual/'+path,'//', '/'));
+	d3.select('#album').attr("src", replaceAll('data_scraping_actual/'+path,'//', '/'));
 	return true;
 
 }
