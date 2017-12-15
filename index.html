@@ -100,7 +100,7 @@
             </div>
             <div class="col-3" style="position:relative;">
               <div style='vertical-align: middle;'>
-                <img  id = 'i2' style='top: 0; bottom:0; vertical-align: middle; display: block; margin-left: auto; margin-right: auto; max-width: 280px; max-height: 280px; object-fit: contain' src="album_cover_demo/blank.png" /> 
+                <img  id = 'i2' style='top: 0; bottom:0; vertical-align: middle; display: block; margin-left: auto; margin-right: auto; max-width: 280px; max-height: 280px; object-fit: contain' src="blank.png" /> 
               </div> 
             </div>
             </div>
@@ -208,44 +208,6 @@
  
   function find_min(current_map)
   {
-    var chart = c3.generate({
-    data: {
-        columns: [
-            [200].concat(current_map["style_counts"])
-        ],
-        type: 'bar',
-        onmouseover: function (d) {
-            console.log("here")
-            ele = by_genre(current_map, current_map["style_labels"][d['x']]);
-            update_view(ele);
-            d3.select("#chart1-style").text( current_map["style_labels"][d['x']] + " Artwork similar to album cover" );
-            //console.log (current_map["style_labels"][d['x']]);
-        }
-    },
-            legend: {
-              show: false
-            },
-    axis: {
-        x: {
-            type: 'category',
-            categories: current_map["style_labels"]
-        }
-    },
-    bar: {
-        width: {
-            ratio: 0.5 // this makes bar width 50% of length between ticks
-        }
-        // or
-        //width: 100 // this makes bar width 100px
-    },
-     color: {
-            pattern: ["#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E","#3E718E"]
-            
-          }
-
-}); 
-
-
     var contentid = current_map["contentId"].slice(0,4);
     var max = current_map["scores"].slice(0,4);
     var breakdown = [0,0,0,0];
