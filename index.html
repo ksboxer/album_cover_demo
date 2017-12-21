@@ -106,10 +106,10 @@
               <div class = "col-1"></div>
             <div class = "col-4">
               <div class = "artwork_text"> 
-                      <p id="album_artist"> test </p>
-                     <i><p id = "album_name" > test </p> </i>
-                     <p id = "album_genre" > test </p>
-                     <i><p id = "album_year" > test </p> </i>
+                      <p id="album_artist"> </p>
+                     <i><p id = "album_name" > </p> </i>
+                     <p id = "album_genre" > </p>
+                     <i><p id = "album_year" > </p> </i>
                    </div>
             </div>
             <div class = "col-3">
@@ -488,7 +488,7 @@ var actual_JSON = 1;
 function myCallback(result) {
   result = JSON.parse(result)
   actual_JSON = result
-  path = Object.keys(actual_JSON)[0]
+  path = shuffleArray(Object.keys(actual_JSON))[0]
   path = path.replace("%26", "%2526")
   path = path.replace("%2F", "%252F")
   d3.select('#album').attr("src", replaceAll('data_scraping_actual/'+path,'//', '/'));
