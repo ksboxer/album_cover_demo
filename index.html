@@ -488,12 +488,13 @@ var actual_JSON = 1;
 function myCallback(result) {
   result = JSON.parse(result)
   actual_JSON = result
-  path = shuffleArray(Object.keys(actual_JSON))[0]
+  key_list = shuffleArray(Object.keys(actual_JSON))
+  path = key_list[0]
   path = path.replace("%26", "%2526")
   path = path.replace("%2F", "%252F")
   d3.select('#album').attr("src", replaceAll('data_scraping_actual/'+path,'//', '/'));
   var options = d3.select('#musiclist').on('change',onchange).selectAll("option")
-	.data(shuffleArray(Object.keys(actual_JSON))).enter().append('option').text(function (d) {  return actual_JSON[d]['artist_music'] + ' - '+ actual_JSON[d]['album_music'] + " " +actual_JSON[d]['year_music']; }).attr('value',(function(d){return d;}));
+	.data(key_list).enter().append('option').text(function (d) {  return actual_JSON[d]['artist_music'] + ' - '+ actual_JSON[d]['album_music'] + " " +actual_JSON[d]['year_music']; }).attr('value',(function(d){return d;}));
 
 	afterInit(callback_afterinit,actual_JSON[path]['res']);
 
